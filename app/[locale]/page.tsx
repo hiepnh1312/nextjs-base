@@ -1,8 +1,5 @@
-'use client';
-import { useTranslations } from 'next-intl';
-import MainLayout from '@/presentation/components/common/MainLayout';
+import { redirect } from 'next/navigation';
 
-export default function HomePage() {
-    const t = useTranslations();
-    return <MainLayout>{t('home')}</MainLayout>;
+export default function LocaleRootRedirect({ params }: { params: { locale: string } }) {
+    redirect(`/${params.locale}/home`);
 }

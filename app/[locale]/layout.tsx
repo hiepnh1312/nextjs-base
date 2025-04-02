@@ -1,3 +1,4 @@
+import '../globals.scss';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 import type { ReactNode } from 'react';

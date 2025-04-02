@@ -4,5 +4,10 @@
   "password": "Password",
   "success_login": "Login successful",
   "invalid_login": "Invalid credentials",
-  "home": "Home"
+  "home": "Home",
+  "login_title": "Login System",
+  "login_description": "Please enter your details to continue",
+  "login_button": "Login",
+  "login_success": "Login successful!",
+  "login_failure": "Login failed"
 }

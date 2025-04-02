@@ -4,5 +4,10 @@
   "password": "Mật khẩu",
   "success_login": "Đăng nhập thành công",
   "invalid_login": "Sai tài khoản hoặc mật khẩu",
-  "home": "Trang chủ"
+  "home": "Trang chủ",
+  "login_title": "Đăng nhập hệ thống",
+  "login_description": "Vui lòng nhập thông tin để tiếp tục",
+  "login_button": "Đăng nhập",
+  "login_success": "Đăng nhập thành công!",
+  "login_failure": "Đăng nhập thất bại"
 }

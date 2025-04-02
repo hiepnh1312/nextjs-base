@@ -14,19 +14,25 @@
     "@ant-design/nextjs-registry": "^1.0.2",
     "@reduxjs/toolkit": "^2.6.1",
     "antd": "^5.24.6",
+    "axios": "^1.8.4",
+    "browserslist": "^4.24.4",
     "next": "15.2.4",
     "next-intl": "^4.0.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-redux": "^9.2.0"
+    "react-redux": "^9.2.0",
+    "sass": "^1.86.1",
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "^4",
+    "@tailwindcss/postcss": "^4.1.1",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "@types/react-redux": "^7.1.34",
-    "tailwindcss": "^4",
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^4.1.1",
     "typescript": "^5"
   }
 }
