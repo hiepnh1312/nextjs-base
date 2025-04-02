@@ -41,7 +41,7 @@ export default function Sidebar() {
     return (
         <Layout.Sider collapsible theme={'dark'}>
             <div className="h-16 px-4 flex items-center justify-center">
-                <span className="text-lg font-semibold text-blue-600">CMS Dashboard</span>
+                <span className="text-lg font-semibold text-blue-600">CMS</span>
             </div>
                 <Menu
                     theme={'dark'}

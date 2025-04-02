@@ -1,5 +1,6 @@
 import {createAsyncThunk, createSlice} from '@reduxjs/toolkit';
 import {authApi} from "@/infrastructure/api/auth.api";
+import {LoginPayload} from "@/domain/auth";
 
 interface AuthState {
     isAuthenticated: boolean;
@@ -13,7 +14,7 @@ const initialState: AuthState = {
 
 export const login = createAsyncThunk(
     'auth/login',
-    async ({ username, password }: { username: string; password: string }) => {
+    async ({ username, password }: LoginPayload) => {
         return await authApi.login(username, password);
     }
 );
