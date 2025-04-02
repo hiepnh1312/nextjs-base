@@ -9,5 +9,11 @@
   "login_description": "Please enter your details to continue",
   "login_button": "Login",
   "login_success": "Login successful!",
-  "login_failure": "Login failed"
+  "login_failure": "Login failed",
+  "username_required": "Please enter your username",
+  "username_min": "Username must be at least 3 characters",
+  "password_required": "Please enter your password",
+  "password_min": "Password must be at least 6 characters",
+  "password_no_spaces": "Password must not contain spaces"
+
 }

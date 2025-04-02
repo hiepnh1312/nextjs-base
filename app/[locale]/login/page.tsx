@@ -3,17 +3,20 @@
 import {
     Card,
     Typography,
-    Form,
     Input,
     Button,
     message,
-    Space
+    Space,
+    Form as AntForm
 } from 'antd';
+import { useForm, Controller } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
 import { useRouter } from 'next/navigation';
 import { useAppDispatch, useAppSelector } from '@/application/redux/hooks';
 import { login } from '@/application/redux/slices/authSlice';
-import {useLocale, useTranslations} from 'next-intl';
-import {LoginPayload} from "@/domain/auth";
+import { useLocale, useTranslations } from 'next-intl';
+import { loginSchema } from '@/schema/auth.schema';
+import { LoginPayload } from '@/domain/auth';
 
 export default function LoginPage() {
     const dispatch = useAppDispatch();
@@ -23,7 +26,15 @@ export default function LoginPage() {
     const locale = useLocale() || 'vi';
     const t = useTranslations();
 
-    const handleLogin = async (values: LoginPayload) => {
+    const {
+        handleSubmit,
+        control,
+        formState: { errors }
+    } = useForm<LoginPayload>({
+        resolver: yupResolver(loginSchema)
+    });
+
+    const onSubmit = async (values: LoginPayload) => {
         try {
             const result = await dispatch(login(values)).unwrap();
             message.success(t('login_success'));
@@ -36,15 +47,12 @@ export default function LoginPage() {
 
     return (
         <div
-            className="min-h-screen  bg-cover bg-center w-[100vw] h-[100vh] flex items-center justify-center"
+            className="min-h-screen w-screen flex items-center justify-center bg-cover bg-center"
             style={{
-                backgroundImage: "url('/images/bg-login.jpg')",
-                backgroundSize: 'cover',
+                backgroundImage: "url('/images/bg-login.jpg')"
             }}
         >
-            <Card
-                className="w-full sm:w-[400px] shadow-2xl rounded-xl bg-white bg-opacity-90 backdrop-blur-md"
-            >
+            <Card className="w-full sm:w-[400px] shadow-2xl rounded-xl bg-white bg-opacity-90 backdrop-blur-md">
                 <Space direction="vertical" style={{ width: '100%' }} size="large">
                     <div className="text-center">
                         <Typography.Title level={3}>{t('login_title')}</Typography.Title>
@@ -53,24 +61,36 @@ export default function LoginPage() {
                         </Typography.Text>
                     </div>
 
-                    <Form layout="vertical" onFinish={handleLogin}>
-                        <Form.Item
-                            name="username"
+                    <AntForm layout="vertical" onFinish={handleSubmit(onSubmit)}>
+                        <AntForm.Item
                             label={t('username')}
-                            rules={[{ required: true, message: t('username') }]}
+                            validateStatus={errors.username ? 'error' : ''}
+                            help={errors.username && t(errors.username.message!)}
                         >
-                            <Input size="large" placeholder="admin" />
-                        </Form.Item>
+                            <Controller
+                                name="username"
+                                control={control}
+                                render={({ field }) => (
+                                    <Input size="large" placeholder="admin" {...field} />
+                                )}
+                            />
+                        </AntForm.Item>
 
-                        <Form.Item
-                            name="password"
+                        <AntForm.Item
                             label={t('password')}
-                            rules={[{ required: true, message: t('password') }]}
+                            validateStatus={errors.password ? 'error' : ''}
+                            help={errors.password && t(errors.password.message!)}
                         >
-                            <Input.Password size="large" placeholder="123456" />
-                        </Form.Item>
+                            <Controller
+                                name="password"
+                                control={control}
+                                render={({ field }) => (
+                                    <Input.Password size="large" placeholder="123456" {...field} />
+                                )}
+                            />
+                        </AntForm.Item>
 
-                        <Form.Item className="mb-0">
+                        <AntForm.Item className="mb-0">
                             <Button
                                 type="primary"
                                 htmlType="submit"
@@ -80,8 +100,8 @@ export default function LoginPage() {
                             >
                                 {t('login_button')}
                             </Button>
-                        </Form.Item>
-                    </Form>
+                        </AntForm.Item>
+                    </AntForm>
                 </Space>
             </Card>
         </div>

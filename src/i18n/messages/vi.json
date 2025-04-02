@@ -9,5 +9,11 @@
   "login_description": "Vui lòng nhập thông tin để tiếp tục",
   "login_button": "Đăng nhập",
   "login_success": "Đăng nhập thành công!",
-  "login_failure": "Đăng nhập thất bại"
+  "login_failure": "Đăng nhập thất bại",
+  "username_required": "Vui lòng nhập tài khoản",
+  "username_min": "Tài khoản phải có ít nhất 3 ký tự",
+  "password_required": "Vui lòng nhập mật khẩu",
+  "password_min": "Mật khẩu phải có ít nhất 6 ký tự",
+  "password_no_spaces": "Mật khẩu không được chứa khoảng trắng"
+
 }
