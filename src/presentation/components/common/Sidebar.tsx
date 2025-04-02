@@ -1,13 +1,11 @@
 'use client';
 import {Layout, Menu, MenuProps} from 'antd';
 import { usePathname, useRouter } from 'next/navigation';
-import { useTranslations } from 'next-intl';
 import {AppstoreOutlined, ContainerOutlined, SettingOutlined} from "@ant-design/icons";
 
 export default function Sidebar() {
     const router = useRouter();
     const pathname = usePathname();
-    const t = useTranslations();
 
     const locale = pathname.split('/')[1];
     const handleClick = ({ key }: { key: string }) => {
@@ -46,6 +44,7 @@ export default function Sidebar() {
                 <Menu
                     theme={'dark'}
                     mode="inline"
+                    onClick={handleClick}
                     defaultSelectedKeys={['home']}
                     items={items}
                 />
