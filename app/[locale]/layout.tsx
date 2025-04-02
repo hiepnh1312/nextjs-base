@@ -3,6 +3,21 @@ import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 import type { ReactNode } from 'react';
 import Providers from '../providers';
+import {Metadata} from "next";
+
+export const metadata: Metadata = {
+    title: "CMS Dashboard",
+    description: "CMS Dashboard - Dashboard dynamic NextJs.",
+    openGraph: {
+        title: "CMS Dashboard",
+        description: "CMS Dashboard - Dashboard dynamic NextJs.",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "CMS Dashboard",
+        description: "CMS Dashboard - Dashboard dynamic NextJs.",
+    },
+};
 
 export default async function LocaleLayout({
                                                children,
