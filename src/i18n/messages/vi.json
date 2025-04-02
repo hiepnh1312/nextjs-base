@@ -1,0 +1,8 @@
+{
+  "login": "Đăng nhập",
+  "username": "Tài khoản",
+  "password": "Mật khẩu",
+  "success_login": "Đăng nhập thành công",
+  "invalid_login": "Sai tài khoản hoặc mật khẩu",
+  "home": "Trang chủ"
+}
